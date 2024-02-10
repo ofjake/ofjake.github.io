@@ -12,7 +12,7 @@
 + Responsive: Responsive and adapts well to various screen sizes, including mobile devices.
   
 
-`git clone https://github.com/ofjake/ofjake.github.io.git` 
+`https://github.com/ofjake/ofjake.github.io` 
 
 Open index.html in your preferred web browser to view the bio card.
 Customization: You can customize the bio card by adjusting the CSS variables in the stylev9.css file:
