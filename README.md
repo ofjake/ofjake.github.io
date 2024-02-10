@@ -1,6 +1,6 @@
 
 
-![JakeRMiller iconmark](https://github.com/ofjake/ofjake.github.io/blob/master/images/logo.png) 
+![JakeRMiller iconmark](https://github.com/ofjake/ofjake/blob/main/logo.png) 
 # **[JakeRMiller.com](https://jakermiller.com)** 
 
 ## This repository contains simple HTML and CSS implementation for a minimal bio card. 
