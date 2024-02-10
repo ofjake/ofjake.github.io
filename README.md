@@ -4,7 +4,7 @@
 # **[JakeRMiller.com](https://jakermiller.com)** 
 
 ## This repository contains simple HTML and CSS implementation for a minimal bio card. 
-### It is designed to provide a concise overview of personal information in a visually appealing format.
+$${\color{gray}### It is designed to provide a concise overview of personal information in a visually appealing format.}$$ 
 
 #### Features:
 + Minimalistic Design: Clean and minimalistic design, focusing on essential information.
