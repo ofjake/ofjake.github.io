@@ -10,6 +10,7 @@
 + Minimalistic Design: Clean and minimalistic design, focusing on essential information.
 + Customizable: Easily customizable through CSS variables to adapt to different color schemes and styles.
 + Responsive: Responsive and adapts well to various screen sizes, including mobile devices.
+  
 
 `git clone https://github.com/ofjake/ofjake.github.io.git` 
 
