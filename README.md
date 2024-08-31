@@ -21,4 +21,4 @@ Open index.html in your preferred web browser to view the bio card.
 This project is inspired by various minimalistic design principles and is created by JakeRMiller. 
 Feel free to contribute to the project by submitting pull requests or reporting issues.
 ##### License:
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License
