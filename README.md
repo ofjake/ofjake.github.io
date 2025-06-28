@@ -1,15 +1,11 @@
-
-
-![JakeRMiller iconmark](https://github.com/ofjake/README/blob/main/logo.png) 
-# **[JakeRMiller.com](https://jakermiller.com)** 
-
-## This repository contains source code for current portfolio site. 
+## This repository contains simple HTML and CSS implementation for a minimal bio card. 
+### It is designed to provide a concise overview of personal information in a visually appealing format.
 
 #### Features:
-+ Minimalistic Design: Clean and minimalistic design, focusing on essential information.
++ Minimalistic Design: Single page, minimalistic design, focusing on essential information.
 + Customizable: Easily customizable through CSS variables to adapt to different color schemes and styles.
 + Responsive: Responsive and adapts well to various screen sizes, including mobile devices.
-+ Customization: You can customize by adjusting the CSS in the stylev11.css file.
++ Customization: You can customize the bio card by adjusting the CSS variables in the stylev9.css file.
 
 ##### Credits:
 This project is inspired by various minimalistic design principles and is created by JakeRMiller. 
