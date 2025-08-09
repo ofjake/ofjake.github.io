@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Morphing Cursor Menu with Scale</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      height: 100vh;
+      overflow: hidden;
+      font-family: sans-serif;
+      color: white;
+    }
+
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid white;
+      transform: translate(-50%, -50%) scale(1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition:
+        width 0.4s ease,
+        height 0.4s ease,
+        border-radius 0.4s ease,
+        background 0.3s ease,
+        transform 0.4s ease;
+      z-index: 9999;
+      background: transparent;
+      pointer-events: auto;
+    }
+
+    .custom-cursor.open {
+      width: 250px;
+      height: 250px;
+      border-radius: 20px;
+      background: #222;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .hamburger {
+      width: 18px;
+      height: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: opacity 0.3s ease;
+      z-index: 3;
+    }
+
+    .hamburger span {
+      height: 2px;
+      background: white;
+      border-radius: 1px;
+    }
+
+    .custom-cursor.open .hamburger {
+      opacity: 0;
+    }
+
+    .menu-content {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      transition: opacity 0.4s ease;
+      z-index: 2;
+    }
+
+    .custom-cursor.open .menu-content {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .menu-content a {
+      color: white;
+      text-decoration: none;
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="custom-cursor" id="customCursor">
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="menu-content">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <script>
+    const cursor = document.getElementById("customCursor");
+    const menu = cursor.querySelector(".menu-content");
+    let isOpen = false;
+
+    let cursorX = 0, cursorY = 0;
+    let targetX = 0, targetY = 0;
+    let latestMouseX = 0, latestMouseY = 0;
+    let timeoutId = null;
+    const speed = 0.1;
+
+    document.addEventListener("mousemove", (e) => {
+      latestMouseX = e.clientX;
+      latestMouseY = e.clientY;
+
+      if (!isOpen) {
+        if (timeoutId) clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          targetX = latestMouseX;
+          targetY = latestMouseY;
+        }, 10);
+      }
+
+      if (isOpen) {
+        const rect = cursor.getBoundingClientRect();
+        const dx = Math.max(rect.left - e.clientX, e.clientX - rect.right, 0);
+        const dy = Math.max(rect.top - e.clientY, e.clientY - rect.bottom, 0);
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance > 20) {
+          cursor.classList.remove("open");
+          isOpen = false;
+        }
+      }
+    });
+
+    function animateCursor() {
+      if (!isOpen) {
+        cursorX += (targetX - cursorX) * speed;
+        cursorY += (targetY - cursorY) * speed;
+        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) scale(1)`;
+      }
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    cursor.addEventListener("click", () => {
+      if (!isOpen) {
+        cursor.classList.add("open");
+        isOpen = true;
+      }
+    });
+  </script>
+</body>
+</html>
