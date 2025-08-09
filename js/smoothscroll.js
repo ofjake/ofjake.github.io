@@ -1,6 +1,7 @@
 let targetScroll = 0;
 let currentScroll = 0;
 const ease = 0.1; // smaller = smoother
+const extraHeight = 60; // extra scrollable space at the bottom
 
 function updateScroll() {
   currentScroll += (targetScroll - currentScroll) * ease;
@@ -11,13 +12,25 @@ function updateScroll() {
 function onWheel(e) {
   e.preventDefault();
   targetScroll += e.deltaY;
-  targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
+  targetScroll = Math.max(
+    0,
+    Math.min(
+      targetScroll,
+      document.body.scrollHeight - window.innerHeight + extraHeight
+    )
+  );
 }
 
 function onTouchMove(e) {
   e.preventDefault();
   targetScroll += (startY - e.touches[0].clientY) * 1.5;
-  targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
+  targetScroll = Math.max(
+    0,
+    Math.min(
+      targetScroll,
+      document.body.scrollHeight - window.innerHeight + extraHeight
+    )
+  );
   startY = e.touches[0].clientY;
 }
 
