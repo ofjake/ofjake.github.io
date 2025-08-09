@@ -71,7 +71,7 @@ body {
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   gap: 20px;
-  width: 100vw;
+  width: calc(100vw - 17px);
   margin: 0 auto;
 }
 
