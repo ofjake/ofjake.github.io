@@ -1,46 +1,34 @@
-const container = document.getElementById('scroll-container');
-let current = 0;
-let target = 0;
-const ease = 0.075;
+let targetScroll = 0;
+let currentScroll = 0;
+const ease = 0.1; // smaller = smoother
 
-function getViewportHeight() {
-  // Use visualViewport on mobile to avoid jumps from toolbar changes
-  return window.visualViewport ? window.visualViewport.height : window.innerHeight;
+function updateScroll() {
+  currentScroll += (targetScroll - currentScroll) * ease;
+  window.scrollTo(0, currentScroll);
+  requestAnimationFrame(updateScroll);
 }
 
-function smoothScroll() {
-  const maxScroll = container.scrollHeight - getViewportHeight();
-
-  // Actual scroll position
-  target = window.scrollY || window.pageYOffset;
-  target = Math.max(0, Math.min(target, maxScroll));
-
-  // Ease toward target
-  current += (target - current) * ease;
-  current = Math.max(0, Math.min(current, maxScroll)); // Clamp
-
-  container.style.transform = `translateY(${-current}px)`;
-  requestAnimationFrame(smoothScroll);
+function onWheel(e) {
+  e.preventDefault();
+  targetScroll += e.deltaY;
+  targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
 }
 
-function setBodyHeight() {
-  document.body.style.height = `${container.scrollHeight}px`;
+function onTouchMove(e) {
+  e.preventDefault();
+  targetScroll += (startY - e.touches[0].clientY) * 1.5;
+  targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight));
+  startY = e.touches[0].clientY;
 }
 
-// Events to recalc height
-window.addEventListener('resize', setBodyHeight);
-window.addEventListener('orientationchange', setBodyHeight);
-if (window.visualViewport) {
-  window.visualViewport.addEventListener('resize', setBodyHeight);
+// Touch support
+let startY = 0;
+function onTouchStart(e) {
+  startY = e.touches[0].clientY;
 }
 
-// On load
-window.addEventListener('load', () => {
-  setBodyHeight();
-  smoothScroll();
-});
+window.addEventListener('wheel', onWheel, { passive: false });
+window.addEventListener('touchstart', onTouchStart, { passive: false });
+window.addEventListener('touchmove', onTouchMove, { passive: false });
 
-// Recalc after DOM and late-loading content
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(setBodyHeight, 100);
-});
+updateScroll();
