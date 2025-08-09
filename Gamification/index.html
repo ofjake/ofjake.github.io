@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>
+      <mark>Need Help?</mark><br>
+        Begin the game
+    </h1>
+    <div id="gamify-panel">
+      <div class="summary">
+        <div>
+          <div class="quest" id="scroll-quest">Scroll to Bottom</div>
+          <div class="quest" id="click-quest">Click a Button</div>
+          <div id="points">Points: 0</div>
+        </div>
+        <div id="badges"></div>
+      </div>
+    </div>
+    <button id="help-button" class="quest-button" data-quest="help">Get Help</button>
+    <button id="go-button" class="quest-button below" data-quest="go">Start</button>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>
