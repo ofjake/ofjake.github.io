@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JakeRMiller > Connecty</title>
+  <link rel="stylesheet" href="../../css/stylesv12.css">
+</head>
+<body>
+  <div class="transition">
+    <div class="transition-row row-1">
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+    </div>
+    <div class="transition-row row-2">
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+    </div>
+  </div>
+  <div>
+    <nav>
+      <div class="logo"><a href="../../index.html">JRM</a></div>
+      <div class="nav-items">
+        <a href="../../index.html">home</a>
+        <a href="../../blog/blog.html">blog</a>
+        <a href="../../projects/projects.html">projects</a>
+      </div>
+    </nav>
+    <div id="scroll-container">
+    <div class="headerpadding"></div>
+    <div class="container containerpercent">
+      <div class="fullwidth padding">
+        <h1>Connecty</h1>
+        <p>This application is designed to automate the process of duplicating an existing folder on an FTP server, modifying its contents, and provide the user with an updated URL and HTML file. Connecty ensures a streamlined workflow by allowing users to input a source folder 'Pickup', specify a new folder 'Update', and upload files to overwrite the existing 'Pickup' ones seamlessly.</p>
+
+        <p><a target="_blank" rel="noreferrer" class="link no-action" href="https://github.com/ofjake/Connecty">Github Repo</a></p> 
+      </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+      <span class="lightbox-close" id="lightbox-close">&times;</span>
+      <img id="lightbox-img" src="" alt="Enlarged image">
+    </div>
+
+
+    <div class="container containerpercent">
+      <div class="one-half padding">
+
+        <div class="image-container">
+          <img src="shots1.png" data-large="shot_lg.jpg" alt="Initialization screenshot of Connecty" class="lightbox-trigger main-image shadow">
+          <img src="icon.png" alt="Icon" class="popup-icon img-no-radius" />
+        </div>
+      </div>
+      <div class="one-half padding">
+        <p>Initialization Phase</p>
+        <p>Upon launch, we first establish a secure FTP connection, ensuring that all operations can be executed.</p>
+        <p>The user will provide two key inputs:</p> 
+        <p>1. The existing folder name on the FTP server that serves as the 'Pickup' template.
+        <br>2. The new folder name where the duplicated content will be stored in an 'Update' folder.</p>
+        <p>Once the inputs are provided, the application verifies their validity and prepares the necessary environment for file transfer and modification.</p>
+      </div>
+    </div>
+
+    <div class="fullwidth padding"><p>Folder Duplication Process</p>
+    <p>The application first creates the 'Update' folder on the FTP server if it doesn't already exist. It then iterates through all files in the 'Pickup' folder, downloading and subsequently re-uploading them into the 'Update' folder.</p>
+    <p>During this process, any HTML files within the folder are scanned, and all instances of the 'Pickup' folder name (inside URLs) are dynamically replaced with the 'Update' folder name to reflect the new naming structure. This ensures that all references remain accurate in the duplicated project.</p>
+    </div>
+
+    <div class="container containerpercent">
+      <div class="one-half padding directionswitch">
+        <img src="shots2.gif" class="center shadow" alt="Connecty Upload view" />
+      </div>
+      <div class="one-half padding"> 
+        <p>File Upload &amp; Overwrite Mechanism</p>
+        <p>Users can also upload additional files, allowing them to update assets within the newly created folder. The system ensures:</p>
+        <p>Overwrite Capabilities - If a file with the same name exists, it is replaced with the newly uploaded version.</p>  
+        <p>Multi-File Support - Users can upload multiple files at once, optimizing efficiency.</p>
+      </div>
+    </div>
+
+    <div class="container containerpercent">
+      <div class="one-half padding">
+        <img src="shots3.jpg" class="center shadow" alt="Newly provided URL link" />
+      </div>
+      <div class="one-half padding"> 
+        <p>Finalization &amp; User Deliverables</p>
+        <p>Once the duplication and file upload processes are complete, the system provides users with a new URL - a direct link to the newly created web project on the FTP server.</p>
+      </div>
+    </div>
+    
+    <div class="container containerpercent">
+      <div class="one-half padding directionswitch">
+        <img src="downloads.png" class="center shadow" alt="Downloads folder" />
+      </div>
+      <div class="one-half padding"> 
+        <p class="paddingbottom">Additionally, the updated HTML is saved to the user's downloads file directory.</p>
+      </div>
+    </div>
+
+    <div class="fullwidth padding">
+      <p>Connecty eliminates the need for manual duplication and file management within an FTP server. By automating folder replication, URL updates, and file overwrites, the app optimizes efficiency, reduces human error, and provides a seamless user experience.</p>
+      <p>The end result is a fully duplicated and updated campaign-ready folder, with all necessary modifications applied, ensuring immediate usability.</p>
+    </div>
+  </div>
+  </div>
+  <div class="headerpadding"></div>
+  <footer>
+    <p>Reach out to me via email <a target="_blank" rel="noreferrer" class="link  no-action" href="mailto:ofjaker@gmail.com">ofjaker@gmail.com</a> </p>
+    
+    <a class="nolinkline no-action" target="_blank" rel="noreferrer" href="https://github.com/ofjake"><img class="main-footer__icon" src="../../img/github-ico.png" alt="github"/></a>
+    <a class="nolinkline no-action" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/ofjake"><img class="main-footer__icon" src="../../img/linkedin-ico.png" alt="linkedin"/></a>
+    <a class="nolinkline no-action" target="_blank" rel="noreferrer" href="https://codepen.io/ofjake"><img class="main-footer__icon" src="../../img/codepen-ico.png" alt="codepen"/></a>
+
+
+  </footer>
+  <script src="../../js/gs.js"></script>
+  <script src="../../js/transition.js"></script>
+  <script src="../../js/lightbox.js"></script>
+  <script src="../../js/smoothscroll.js"></script>
+</body>
+</html>
