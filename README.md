@@ -1,4 +1,4 @@
-## This repository contains simple HTML and CSS implementation for a minimal bio card. 
+## This repository contains files for my site. 
 ### It is designed to provide a concise overview of personal information in a visually appealing format.
 
 #### Features:
