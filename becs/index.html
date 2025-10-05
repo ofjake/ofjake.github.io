@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond Email Codex</title>
+  <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+  <meta name="description" content="Beyond Email Codex - Speed up development times with this boilerplate documentation">
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+  <main id="top">
+    <!-- Navigation -->
+    <aside>
+      <div id="nav" class="fw-sidebar" role="navigation">
+        <h1>&nbsp;Becs</h1>
+        <!-- Components -->
+        <div class="sidebar">
+          <ul aria-label="Components" class="fw-nav-group">
+            <li data-component="header"><a href="#top">Header</a></li>
+            <li data-component="button"><a href="#top">Button</a></li>
+            <li data-component="bodycopy"><a href="#top">Body Copy</a></li>
+          </ul>
+        </div>
+        <!-- Code -->
+        <ul aria-label="Code snippets"  class="fw-nav-group">
+          <li><a href="#fwReplace">Replace</a></li>
+          <li><a href="#fwArray">Array</a></li>
+          <li><a href="#fwpreheadfix">Prehead fix</a></li>
+          <li><a href="#fwOutlookOnly">Outlook Only</a></li>
+          <li><a href="#fwLefthandGuide">Lefthand Note</a></li>
+          <li><a href="#fwFullClickCTA">Full Click CTA</a></li>
+          <li><a href="#fwSplitAmenities">Split Amenities</a></li>
+          <li><a href="#fwVideoEmbed">Video Embed</a></li>
+          <li><a href="#codeTextarea">Sandbox</a></li>
+        </ul>
+      </div>
+    </aside>
+    <article>
+      <div id="codeBlocks">
+        <!-- Components -->
+        <div class="code-block topcodeblock">
+          <div id="preview"></div>
+        </div>
+        <button class="button" id="copyCodeBtn">Copy Component</button>
+        <div class="tooltip" id="tooltipA">Component copied!</div>
+
+        <!-- Code -->
+        <div id="fwReplace">
+          <!-- <img src="images/Replace.jpg" alt="Replace" class="exampleimage" > -->
+          <div id="Replace" class="code-block">
+            <pre><code>&lt;p style="Margin-top:0px;Margin-bottom:15px;line-height:130%;" &gt;
+  #set ($fwSafetyRecalls = $SafetyRecalls.replace("&lt;br /&gt;", "&lt;br /&gt; &bull; "))
+    &bull; $fwSafetyRecalls
+&lt;/p&gt;
+
+#set ($fwRecallsUrl = $RecallsUrl.replace("VIN", "vin"))
+&lt;p style="Margin-top:0px;Margin-bottom:15px;" &gt;&lt;a href="$fwRecallsUrl" style="text-decoration:none; color:#00b9e5;"&gt;click here&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+          </div>
+          <button class="button" onclick="copyCode('Replace', 'tooltip1')">Copy Replace Code</button>
+          <button class="button addto" onclick="showCodeBlock('Replace')">Add to Sandbox</button>
+          <div class="tooltip" id="tooltip1">Code copied!</div>
+        </div>
+
+        <!--  -->
+        <div id="fwArray">
+          <!-- <img src="images/Array.jpg" alt="Array" class="exampleimage" > -->
+          <div id="Array" class="code-block">
+            <pre><code>#set ($fwVehicleList = ["Ascent", "BRZ", "Crosstrek", "Forester", "Impreza", "Legacy", "Outback", "Solterra", "WRX"])
+
+#foreach ($fwVehicle in $fwVehicleList)
+  #if ($VehicleModel.contains($fwVehicle))
+    #set ($fwHeaderVehicleModel = $fwVehicle)
+  #break
+  #else	
+    #set ($fwHeaderVehicleModel = "Other")
+  #end	
+#end
+</code></pre>
+          </div>
+          <button class="button" onclick="copyCode('Array', 'tooltip2')">Copy Array Code</button>
+          <button class="button addto" onclick="showCodeBlock('Array')">Add to Sandbox</button>
+          <div class="tooltip" id="tooltip2">Code copied!</div>
+        </div>
+
+        <!--  -->
+        <div id="fwpreheadfix">
+          <div id="preheadfix" class="code-block">
+            <pre><code>Preheader &amp;zwnj; &amp;nbsp; &amp;zwnj; &amp;nbsp; &amp;zwnj; &amp;nbsp; &amp;zwnj; &amp;nbsp; &amp;zwnj; &amp;nbsp; &amp;zwnj; &amp;nbsp; &amp;zwnj; &amp;nbsp; &amp;zwnj; &amp;nbsp;
+</code></pre>
+          </div>
+          <button class="button" onclick="copyCode('preheadfix', 'tooltip3')">Copy Preheader Fix Code</button>
+          <button class="button addto" onclick="showCodeBlock('preheadfix')">Add to Sandbox</button>
+          <div class="tooltip" id="tooltip3">Code copied!</div>
+        </div>
+
+        <!--  -->
+        <div id="fwOutlookOnly">
+          <div id="OutlookOnly" class="code-block">
+            <pre><code>&lt;tr&gt;
+  &lt;td style="line-height:110%;padding-top:0;padding-bottom:0px;padding-right:0;padding-left:0;font-size:0px;" &gt;&lt;!--[if (gte mso 9)|(IE)]&gt;&lt;img src="https://website.com/creative/Header_Animation.jpg" alt="$fwHeaderAltText" class="flex" style="border-width:0;display:block;-ms-interpolation-mode:bicubic;line-height:100%;width:100%;height:auto;" &gt;&lt;div style="display:none;" &gt;&lt;![endif]--&gt;&lt;!--[if !mso]&gt;&lt;!-- --&gt;&lt;img src="Header_Animation.gif" alt="$fwHeaderAltText" class="flex" style="border-width:0;display:block;-ms-interpolation-mode:bicubic;line-height:100%;width:100%;height:auto;"&gt;&lt;!--&lt;![endif]--&gt;&lt;!--[if (gte mso 9)|(IE)]&gt;&lt;/div&gt;&lt;![endif]--&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
+          </div>
+          <button class="button" onclick="copyCode('OutlookOnly', 'tooltip4')">Copy Outlook Only Code</button>
+          <button class="button addto" onclick="showCodeBlock('OutlookOnly')">Add to Sandbox</button>
+          <div class="tooltip" id="tooltip4">Code copied!</div>
+        </div>
+
+
+        <!--  -->
+        <div id="fwLefthandGuide">
+          <div id="LefthandGuide" class="code-block">
+            <pre><code>&lt;style&gt;
+  #LeftNavigation {position: relative}
+  #LeftNavigation::after {
+    position: absolute;
+    content: '1. Editable body copy\A 2. Editable dealer hours\A 3. Editable disclaimer';
+    font-size: 14px;
+    color: #ff0000 !important;
+    bottom: -155px;
+    right: 0;
+    background: black;
+    padding: 10px;
+    border: 1px solid #fff;
+    white-space: pre-wrap;
+    z-index: 100;
+    width: 215px;}
+&lt;/style&gt;
+</code></pre>
+          </div>
+          <button class="button" onclick="copyCode('LefthandGuide', 'tooltip5')">Copy Lefthand Guide</button>
+          <button class="button addto" onclick="showCodeBlock('LefthandGuide')">Add to Sandbox</button>
+          <div class="tooltip" id="tooltip5">Code copied!</div>
+        </div>
+
+
+        <!--  -->
+        <div id="fwFullClickCTA">
+          <div id="FullClickCTA" class="code-block">
+            <pre><code>&lt;table width="294" align="center" border="0" cellspacing="0" cellpadding="0"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;div&gt;
+        &lt;!--[if mso]&gt;
+          &lt;v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="$DealershipUrl" style="height:45px;v-text-anchor:middle;width:294px;" strokecolor="#EB7035" fillcolor="#EB7035"&gt;
+            &lt;w:anchorlock/&gt;
+            &lt;center style="color:#ffffff;font-family:Helvetica, Arial,sans-serif;font-size:16px;"&gt;I am a button &rarr;&lt;/center&gt;
+          &lt;/v:roundrect&gt;
+        &lt;![endif]--&gt;
+        &lt;a href="$DealershipUrl" style="background-color:#EB7035;border:1px solid #EB7035;color:#ffffff;display:inline-block;font-size:16px;font-family:sans-serif;color:#ffffff;text-decoration:none;text-align:center;width:294px;-webkit-text-size-adjust:none;mso-hide:all;line-height: 45px; height: 45px;"&gt;I am a button &rarr;&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;tr&gt;
+  &lt;td class="outer" style="padding-top:30px;padding-bottom:30px;padding-right:0;padding-left:0;text-align:center;line-height:110%;font-size:0px;" &gt;
+    &lt;table width="284" align="center" style="border-spacing:0;Margin:0 auto;font-family:Arial, Helvetica, sans-serif;" &gt;
+      &lt;tr&gt;
+        &lt;td class="outer" style="text-align:center;line-height:110%;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;font-size:0px;" &gt;&lt;a href="$DealershipUrl?&utm_source=careconnect&utm_medium=email&utm_campaign=marketdriver-sales&ddcref=careconnect" target="_blank" data-surl-type="General" data-surl-meta1="cta_header" style="background-color:#55ab40;color:#ffffff;font-weight:bold;display:inline-block;font-size:15px;text-decoration:none;text-align:center;width:244px;-webkit-text-size-adjust:none;line-height:20px;height:20px;padding-top:20px;padding-bottom:20px;padding-right:0;padding-left:0;" &gt;&lt;!--[if mso]&gt;&lt;img src="$image.GetUrl('SM201-Learn-More')" width="284" height="60" alt="LEARN MORE" data-noedit="1" style="border-width:0;display:block;-ms-interpolation-mode:bicubic;line-height:100%;" /&gt;&lt;![endif]--&gt;&lt;span style="mso-hide:all;" &gt;LEARN MORE&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;  
+  &lt;/td&gt;
+&lt;/tr&gt; 	
+</code></pre>
+          </div>
+          <button class="button" onclick="copyCode('FullClickCTA', 'tooltip6')">Copy Full Click CTA</button>
+          <button class="button addto" onclick="showCodeBlock('FullClickCTA')">Add to Sandbox</button>
+          <div class="tooltip" id="tooltip6">Code copied!</div>
+        </div>
+
+
+        <!--  -->
+        <div id="fwSplitAmenities">
+          <div id="SplitAmenities" class="code-block">
+            <pre><code>&lt;!-- Amenities --&gt;
+  #if ($amenities.Count != 0)
+    &lt;tr&gt;
+      &lt;td style="background-color:#333333;line-height:110%;padding-top:30px;padding-bottom:30px;padding-right:0;padding-left:0;" &gt;
+        &lt;table width="100%" style="border-spacing:0;Margin:0 auto;font-family:Arial, Helvetica, sans-serif;" &gt;
+          &lt;tr&gt;
+            &lt;td class="row" style="line-height:110%;padding-top:0;padding-bottom:0px;padding-right:0;padding-left:0;font-size:0px;text-align:center;" &gt;
+            &lt;!--[if (gte mso 9)|(IE)]&gt;&lt;table width="100%" style="border-spacing:0;Margin:0 auto;font-family:Arial, Helvetica, sans-serif;" &gt;&lt;tr&gt;&lt;td width="50%" valign="top" style="line-height:110%;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;&lt;![endif]--&gt;
+            &lt;div class="fcol" style="max-width:324px;vertical-align:top;display:inline-block;width:100%;font-size:0px;" &gt;
+              &lt;table width="100%" style="border-spacing:0;Margin:0 auto;font-family:Arial, Helvetica, sans-serif;" &gt;
+                &lt;tr&gt;
+                  &lt;td style="padding-top:0px;padding-bottom:0px;padding-right:20px;padding-left:20px;font-size:14px;color:#ffffff;text-align:left;line-height:130%;" &gt;
+                    &lt;span style="font-weight:bold;color:#00b9e5;font-size:18px;"&gt;Our Service Amenities:&lt;/span&gt;&lt;br&gt;
+                    #set ($fwCount = 0)
+                    #foreach ($a in $amenities)
+                      #set ($fwCount = $fwCount + 1)
+                      #if ($fwCount % 2 == 0)
+                        &bull; $a.Name &lt;br/&gt;
+                      #end
+                    #end
+                  &lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/table&gt;
+            &lt;/div&gt;
+            &lt;!--[if (gte mso 9)|(IE)]&gt;&lt;/td&gt;&lt;td width="50%" valign="top" style="line-height:110%;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;&lt;![endif]--&gt;
+            &lt;div class="fcol" style="max-width:324px;vertical-align:top;display:inline-block;width:100%;font-size:0px;" &gt;
+              &lt;table width="100%" style="border-spacing:0;Margin:0 auto;font-family:Arial, Helvetica, sans-serif;" &gt;
+                &lt;tr&gt;
+                  &lt;td style="padding-top:0px;padding-bottom:0px;padding-right:20px;padding-left:20px;font-size:14px;color:#ffffff;text-align:left;line-height:130%;" &gt;
+                    #set ($fwCount2 = 0)
+                    #foreach ($a in $amenities)
+                      #set ($fwCount2 = $fwCount2 + 1)
+                      #if ($fwCount2 % 2 != 0)
+                        &bull; $a.Name &lt;br/&gt;
+                      #end
+                    #end
+                  &lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/table&gt;
+            &lt;/div&gt;
+            &lt;!--[if (gte mso 9)|(IE)]&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  #end
+</code></pre>
+          </div>
+          <button class="button" onclick="copyCode('SplitAmenities', 'tooltip7')">Copy Split Amenities</button>
+          <button class="button addto" onclick="showCodeBlock('SplitAmenities')">Add to Sandbox</button>
+          <div class="tooltip" id="tooltip7">Code copied!</div>
+        </div>
+
+        <!--  -->
+        <div id="fwVideoEmbed">
+          <div id="VideoEmbed" class="code-block">
+            <pre><code>&lt;style type="text/css"&gt;
+  .video-wrapper {display:none;}
+  @media (-webkit-min-device-pixel-ratio: 0) and (min-device-width:1024px) 
+    {
+      .video-wrapper { display:block!important; }
+      .video-fallback { display:none!important; }
+    }
+  @supports (-webkit-overflow-scrolling:touch) and (color:#ffffffff) 
+    {
+      div[class^=video-wrapper] { display:block!important; }
+      div[class^=video-fallback] { display:none!important; }
+    }
+    #MessageViewBody .video-wrapper { display:block!important; }
+    #MessageViewBody .video-fallback { display:none!important; }
+&lt;/style&gt;
+
+&lt;tr&gt;
+  &lt;td style="padding:0; background-color:#ffffff; font-size:0;"&gt;
+    &lt;!-- video section --&gt;
+    &lt;div class="video-wrapper" style="display:none;"&gt;
+    &lt;video controls="controls" poster="https://website.com/creative/shot.jpg" style="width:100%; height: auto;"&gt; &lt;source src="http://website.com/creative/TomsMessage.mp4" type="video/mp4"&gt;
+    &lt;!-- fallback 1 --&gt;
+    &lt;a target="_blank" data-surl-type="General" data-surl-meta1="Video" href="https://youtu.be/dQw4w9WgXcQ?si=YfHvw2CXxT2F_3U6" &gt; &lt;img alt="Play Video" src="https://website.com/creative/shot.jpg" style="border-width:0;display:block;-ms-interpolation-mode:bicubic;line-height:100%;width:100%;height:auto;" /&gt; &lt;/a&gt;
+    &lt;/video&gt;
+    &lt;/div&gt;
+    &lt;!-- fallback section --&gt;
+    &lt;div class="video-fallback"&gt;
+      &lt;a target="_blank" alt="Play Video" data-surl-type="General" data-surl-meta1="Video" href="https://youtu.be/dQw4w9WgXcQ?si=YfHvw2CXxT2F_3U6" &gt; &lt;img alt="Play Video" src="https://website.com/creative/shot.jpg" style="border-width:0;display:block;-ms-interpolation-mode:bicubic;line-height:100%;width:100%;height:auto;" /&gt; &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/td&gt;	
+&lt;/tr&gt;
+</code></pre>
+          </div>
+          <button class="button" onclick="copyCode('VideoEmbed', 'tooltip8')">Copy Video Embed</button>
+          <button class="button addto" onclick="showCodeBlock('VideoEmbed')">Add to Sandbox</button>
+          <div class="tooltip" id="tooltip8">Code copied!</div>
+        </div>
+
+
+      </div>
+      <textarea id="codeTextarea" contenteditable="true"></textarea>
+      <button class="button" onclick="copyAllCode()">Copy All Code</button>
+      <div class="tooltip" id="tooltipAll">All code copied!</div>
+    </article>
+    <script src="script.js"></script>
+  </main>
+</body>
+
+
+</html>
