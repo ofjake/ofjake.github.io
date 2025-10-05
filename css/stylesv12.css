@@ -255,8 +255,7 @@ footer a {
 
 .nonnav {
   text-decoration: none;
-  font-weight: bold;
-  font-size: calc(var(--font-base) * 1.5);
+  /* font-size: calc(var(--font-base) * 1.5); */
   color: var(--light-25);
   filter: invert(30%);
 }
@@ -685,4 +684,5 @@ footer a {
   .article-title {
     font-size: 2rem;
   } 
+
 }
