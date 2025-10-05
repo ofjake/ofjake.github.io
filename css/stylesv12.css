@@ -664,7 +664,7 @@ footer a {
     height: 118px;
     padding-top: 1rem;
   }
-  .nav-items a {
+  .nav-items {
     font-size: 1.125rem;
     padding: 0 0 1rem;
   }
@@ -686,3 +686,4 @@ footer a {
   } 
 
 }
+
