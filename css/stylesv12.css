@@ -670,7 +670,7 @@ footer a {
   }
   .logo {
     text-align: center;
-    padding-top: 0;
+    padding-bottom: 1rem;
   }
   .directionswitch {
     order: 0;
@@ -686,5 +686,6 @@ footer a {
   } 
 
 }
+
 
 
