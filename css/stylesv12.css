@@ -687,5 +687,27 @@ footer a {
 
 }
 
+/* Mobile / coarse-pointer override: prefer native scrolling and disable transform-based movement */
+@media (max-width: 900px), (pointer: coarse) {
+  html, body {
+    height: auto !important;
+  }
+
+  #scroll-container {
+    will-change: auto !important;
+    transition: none !important;
+    transform: none !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch !important;
+    overflow: visible !important;
+  }
+
+  /* Ensure the transition overlay doesn't intercept touches on mobile */
+  .transition {
+    display: none !important;
+    pointer-events: none !important;
+  }
+}
+
 
 
