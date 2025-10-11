@@ -206,12 +206,14 @@ footer {
   background-image: linear-gradient(#172235, #1b273b);
   color: var(--dark-50);
   text-align: center;
-  padding: .75rem 2rem .75rem 0rem;
+  padding: .75rem 2rem calc(env(safe-area-inset-bottom, 0) + .75rem) 0rem;
   position: fixed;
   left: 0;
-  bottom: 0;
+  right: 0;
+  bottom: env(safe-area-inset-bottom, 0);
   z-index: 11;
   width: 100%;
+  box-sizing: border-box;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -687,7 +689,6 @@ footer a {
 
 }
 
-/* Mobile / coarse-pointer override: prefer native scrolling and disable transform-based movement */
 @media (max-width: 900px), (pointer: coarse) {
   html, body {
     height: auto !important;
@@ -702,7 +703,6 @@ footer a {
     overflow: visible !important;
   }
 
-  /* Ensure the transition overlay doesn't intercept touches on mobile */
   .transition {
     display: none !important;
     pointer-events: none !important;
