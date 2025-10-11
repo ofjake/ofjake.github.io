@@ -3,16 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", (event) => {
-      // Check if the link has the "no-action" class
       if (link.classList.contains("no-action")) {
         console.log("Bypassed universal handler for:", link.href);
-        return; // Skip the universal behavior
+        return;
       }
 
       event.preventDefault();
       const href = link.getAttribute("href");
 
-      // Check if the link is not a hash link or the current pathname
       if (href && !href.startsWith("#") && href !== window.location.pathname) {
         animateTransition().then(() => {
           window.location.href = href;
@@ -21,12 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Initial reveal transition
   revealTransition().then(() => {
     gsap.set(".block", { visibility: "hidden" });
   });
 
-  // Reveal transition function
   function revealTransition() {
     return new Promise((resolve) => {
       gsap.set(".block", { scaleY: 1 });
@@ -45,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Animate transition function
   function animateTransition() {
     return new Promise((resolve) => {
       gsap.set(".block", { visibility: "visible", scaleY: 0 });
@@ -65,22 +60,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+(function () {
+  const isMobileTouch = (typeof window !== 'undefined') && (
+    /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent) ||
+    (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) ||
+    window.innerWidth <= 900
+  );
 
-// mouse scroll slowdown
+  if (isMobileTouch) return; 
 
-document.addEventListener(
-  "wheel",
-  (event) => {
-    event.preventDefault(); // Prevent default scrolling behavior
+  function wheelHandler(event) {
+    const tag = event.target && event.target.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || event.target.isContentEditable) return;
 
-    // Adjust the multiplier to speed up scrolling
-    const scrollSpeed = 3; // Higher value = faster scrolling
+    if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
 
-    // Smooth scrolling effect
+    event.preventDefault(); 
+
+    const scrollSpeed = 3; 
+
     window.scrollBy({
-      top: event.deltaY * scrollSpeed, // Multiply scroll distance
-      behavior: "smooth", // Smooth scrolling
+      top: event.deltaY * scrollSpeed, 
+      behavior: 'smooth', 
     });
-  },
-  { passive: false } // Required for preventDefault to work
-);
+  }
+
+  document.addEventListener('wheel', wheelHandler, { passive: false });
+})();
