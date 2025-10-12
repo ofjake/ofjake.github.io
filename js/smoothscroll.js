@@ -2,7 +2,7 @@ const container = document.getElementById('scroll-container');
 let current = 0;
 let target = 0;
 let ease = 0.1;
-const EXTRA_HEIGHT = 100;
+const EXTRA_HEIGHT = 120;
 
 const isMobileTouch = (typeof window !== 'undefined') && (
   /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent) ||
