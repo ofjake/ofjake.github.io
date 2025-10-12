@@ -492,6 +492,10 @@ footer a {
   color: #fff;
 }
 
+#recommendations {
+  padding-bottom:20px;
+}
+
 .title-container {
   z-index: 7;
 }
