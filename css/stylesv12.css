@@ -704,7 +704,7 @@ footer a {
   }
 
   .transition {
-    display: none !important;
+  
     pointer-events: none !important;
   }
 }
