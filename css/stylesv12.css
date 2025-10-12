@@ -696,15 +696,12 @@ footer a {
 
   #scroll-container {
     will-change: auto !important;
-    transition: none !important;
-    transform: none !important;
     touch-action: pan-y !important;
     -webkit-overflow-scrolling: touch !important;
     overflow: visible !important;
   }
 
   .transition {
-  
     pointer-events: none !important;
   }
 }
