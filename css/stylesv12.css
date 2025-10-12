@@ -695,7 +695,6 @@ footer a {
   }
 
   #scroll-container {
-    will-change: auto !important;
     touch-action: pan-y !important;
     -webkit-overflow-scrolling: touch !important;
     overflow: visible !important;
