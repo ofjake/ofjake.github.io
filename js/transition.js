@@ -80,7 +80,7 @@ document.addEventListener(
 
 // Homepage logo animate
 
-const full = "JacobRMiller";
+const full = "JakeRMiller";
 const short = "JRM";
 const logo = document.getElementById("logo");
 
@@ -113,4 +113,5 @@ setTimeout(() => {
     type(short);
   });
 }, 2000);
+
 
