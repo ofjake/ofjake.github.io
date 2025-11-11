@@ -1,18 +1,18 @@
+// Page to page Transition
+
 document.addEventListener("DOMContentLoaded", () => {
   const ease = "power4.inOut";
 
   document.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", (event) => {
-      // Check if the link has the "no-action" class
       if (link.classList.contains("no-action")) {
         console.log("Bypassed universal handler for:", link.href);
-        return; // Skip the universal behavior
+        return;
       }
 
       event.preventDefault();
       const href = link.getAttribute("href");
 
-      // Check if the link is not a hash link or the current pathname
       if (href && !href.startsWith("#") && href !== window.location.pathname) {
         animateTransition().then(() => {
           window.location.href = href;
@@ -21,12 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Initial reveal transition
   revealTransition().then(() => {
     gsap.set(".block", { visibility: "hidden" });
   });
 
-  // Reveal transition function
   function revealTransition() {
     return new Promise((resolve) => {
       gsap.set(".block", { scaleY: 1 });
@@ -45,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Animate transition function
   function animateTransition() {
     return new Promise((resolve) => {
       gsap.set(".block", { visibility: "visible", scaleY: 0 });
@@ -65,22 +62,55 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-// mouse scroll slowdown
+// Mouse scroll slowdown
 
 document.addEventListener(
   "wheel",
   (event) => {
-    event.preventDefault(); // Prevent default scrolling behavior
+    event.preventDefault();
+    const scrollSpeed = 3;
 
-    // Adjust the multiplier to speed up scrolling
-    const scrollSpeed = 3; // Higher value = faster scrolling
-
-    // Smooth scrolling effect
     window.scrollBy({
-      top: event.deltaY * scrollSpeed, // Multiply scroll distance
-      behavior: "smooth", // Smooth scrolling
+      top: event.deltaY * scrollSpeed,
+      behavior: "smooth",
     });
   },
-  { passive: false } // Required for preventDefault to work
+  { passive: false }
 );
+
+// Homepage logo animate
+
+const full = "JacobRMiller";
+const short = "JRM";
+const logo = document.getElementById("logo");
+
+function eraseText(str, onComplete) {
+  let i = str.length;
+  let interval = setInterval(() => {
+    logo.textContent = str.slice(0, i--);
+    if (i < 0) {
+      clearInterval(interval);
+      if (onComplete) onComplete();
+    }
+  }, 19);
+}
+
+function type(str, onComplete) {
+  let i = 0;
+  let interval = setInterval(() => {
+    logo.textContent = str.slice(0, i++);
+    if (i > str.length) {
+      clearInterval(interval);
+      if (onComplete) onComplete();
+    }
+  }, 83); 
+}
+
+logo.textContent = full;
+
+setTimeout(() => {
+  eraseText(full, () => {
+    type(short);
+  });
+}, 2000);
+
