@@ -390,6 +390,10 @@ footer a {
   padding: 2rem 0rem;
 }
 
+.paddingside {
+  padding: 0rem 2rem;
+}
+
 .paddingbottom {
   padding-bottom: 2rem;
 }
@@ -708,6 +712,7 @@ footer a {
     pointer-events: none !important;
   }
 }
+
 
 
 
