@@ -164,6 +164,7 @@ h1 {
     font-family: 'Inter', sans-serif;
     transition: border-color 0.2s;
     outline: none;
+    width: 100%;
 }
 
 .input-group input:focus {
@@ -360,3 +361,4 @@ h1 {
     }
 
 }
+
