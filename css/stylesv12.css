@@ -507,15 +507,31 @@ footer a {
 .site-title {
   line-height: 80%;
   font-family: var(--font-text);
-  font-weight: bold;
-  font-size: 5rem;
-  color: var(--light-25);
-  padding: 1rem 0;
   background: linear-gradient(45deg, var(--sec-100), var(--dark-25), var(--sec-100)) 0 0 / 400% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   transition : all 0.3s ease-in-out;
+}
+
+.title-head {
+  font-size: 1rem;
+  color: var(--dark-25);
+  padding: 1rem 0 0;
+}
+
+.title-subhead {
+  font-weight: bold;
+  font-size: 5rem;
+  color: var(--light-25);
+  padding: 0;
+}
+
+.title-signature {
+
+  font-size: 2rem;
+  color: var(--dark-50);
+  padding: 0 0 1rem;
 }
 
 /* Lightbox */
