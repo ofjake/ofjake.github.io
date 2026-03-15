@@ -657,8 +657,14 @@ footer a {
 }
 
 @media (max-width: 1180px) {
- .site-title {
+  .title-head {
+    font-size: 1rem;
+  } 
+  .title-subhead {
     font-size: 4rem;
+  } 
+  .title-signature {
+    font-size: 1.25rem;
   } 
 }
 
@@ -704,13 +710,18 @@ footer a {
   .twoeighty {
     width: 100%;
   }
-  .site-title {
+  .title-head {
+    font-size: .5rem;
+  } 
+  .title-subhead {
     font-size: 3rem;
+  } 
+  .title-signature {
+    font-size: 1rem;
   } 
   .article-title {
     font-size: 2rem;
   } 
-
 }
 
 @media (max-width: 900px), (pointer: coarse) {
