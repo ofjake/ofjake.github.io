@@ -505,7 +505,7 @@ footer a {
 }
 
 .site-title {
-  line-height: 80%;
+  line-height: 90%;
   font-family: var(--font-text);
   background: linear-gradient(45deg, var(--sec-100), var(--dark-25), var(--sec-100)) 0 0 / 400% 100%;
   -webkit-background-clip: text;
@@ -515,20 +515,19 @@ footer a {
 }
 
 .title-head {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: var(--dark-25);
   padding: 1rem 0 0;
 }
 
 .title-subhead {
   font-weight: bold;
-  font-size: 5rem;
+  font-size: 7rem;
   color: var(--light-25);
   padding: 0;
 }
 
 .title-signature {
-
   font-size: 2rem;
   color: var(--dark-50);
   padding: 0 0 1rem;
@@ -658,13 +657,13 @@ footer a {
 
 @media (max-width: 1180px) {
   .title-head {
-    font-size: 1rem;
+    font-size: 1.5rem;
   } 
   .title-subhead {
-    font-size: 4rem;
+    font-size: 5rem;
   } 
   .title-signature {
-    font-size: 1.25rem;
+    font-size: 2rem;
   } 
 }
 
@@ -710,18 +709,18 @@ footer a {
   .twoeighty {
     width: 100%;
   }
+  .article-title {
+    font-size: 2.5rem;
+  } 
   .title-head {
-    font-size: .5rem;
+    font-size: 1.25rem;
   } 
   .title-subhead {
     font-size: 3rem;
   } 
   .title-signature {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: right;
-  } 
-  .article-title {
-    font-size: 2.5rem;
   } 
 }
 
