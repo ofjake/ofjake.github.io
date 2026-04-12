@@ -2,8 +2,16 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'OswaldVariable';
+  src: url('Oswald-VariableFont_wght.woff2') format('woff2-variations');
+  font-weight: 200 300 400 500 600 700; 
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --font-text: 'Calibri', sans-serif;
+  --font-text: 'OswaldVariable', sans-serif;
 	--font-text2: sans-serif;
 	--font-base: 1rem;
 	--line-height: 1;
@@ -54,12 +62,12 @@ html, body {
   width: 100%;
   height: 100%;
   background-color: var(--light-100);
-  font-family: Arial, sans-serif;
+  font-family: var(--font-text);
+  font-weight: 200;
   font-size: 16px;
 }
 
 body {
-  font-family: var(--font-text);
 	font-size: var(--font-base);
 	display: grid;
   justify-content: center;
@@ -217,6 +225,7 @@ footer {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  font-weight: 200;
 }
 
 footer p {
@@ -269,7 +278,7 @@ footer a {
   gap: 2em;
   background-color: var(--light-100);
   padding: 1rem;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .cardcontainer {
@@ -487,7 +496,7 @@ footer a {
 .article-title {
   line-height: 80%;
   font-family: var(--font-text);
-  font-weight: bold;
+  font-weight: 500;
   font-size: 3rem;
   color: var(--pri-100);
 }
@@ -512,6 +521,7 @@ footer a {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   transition : all 0.3s ease-in-out;
+  font-weight: 600;
 }
 
 .title-head {
