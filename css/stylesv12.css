@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'OswaldVariable';
-  src: url('Oswald-VariableFont_wght.woff2') format('woff2-variations');
+  src: url('oswald/Oswald-VariableFont_wght.woff2') format('woff2-variations');
   font-weight: 200 300 400 500 600 700; 
   font-style: normal;
   font-display: swap;
