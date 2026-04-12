@@ -229,12 +229,12 @@ footer {
 }
 
 footer p {
-  font-size: 1rem; 
+  font-size: .75rem; 
   margin-bottom: .5rem;
 }
 
 footer a {
-  font-size: 1rem; 
+  font-size: .75rem; 
 }
 
 .progress {
