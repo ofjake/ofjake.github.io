@@ -299,7 +299,7 @@ footer a {
   gap: 2em;
   background-color: var(--light-100);
   padding: 1rem;
-  font-weight: 400;
+  font-stretch: condensed;
 }
 
 .cardcontainer {
@@ -394,6 +394,7 @@ footer a {
 .logo {
   color: var(--pri-100);
   font-weight: bold;
+  font-stretch: condensed;
   font-size: calc(var(--font-base) * 1.5);
 }
 
