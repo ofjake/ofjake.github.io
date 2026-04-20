@@ -3,54 +3,33 @@
 }
 
 @font-face {
-  font-family: 'LeagueGothic';
-  src: url('LeagueGothic/LeagueGothic-Regular.woff2') format('woff2');
-  font-weight: 400;
+  font-family: 'OswaldVariable';
+  src: url('oswald/Oswald-VariableFont_wght.woff2') format('woff2-variations');
+  font-weight: 200 300 400 500 600 700; 
   font-style: normal;
-}
-
-@font-face {
-  font-family: 'LeagueGothic';
-  src: url('LeagueGothic/LeagueGothic-Regular.woff2') format('woff2');
-  font-weight: 400; 
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'LeagueGothic';
-  src: url('LeagueGothic/LeagueGothic-Regular.woff2') format('woff2');
-  font-weight: 400; 
-  font-style: condensed;
-}
-
-@font-face {
-  font-family: 'LeagueGothic';
-  src: url('LeagueGothic/LeagueGothic-CondensedItalic.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-  font-stretch: condensed;
+  font-display: swap;
 }
 
 :root {
-  --font-text: 'LeagueGothic', sans-serif;
-  --font-text2: sans-serif;
-  --font-base: 1rem;
-  --line-height: 1;
-  --padding: 1.5rem;
-  --max-width: 77rem;
+  --font-text: 'OswaldVariable', sans-serif;
+	--font-text2: sans-serif;
+	--font-base: 1rem;
+	--line-height: 1;
+	--padding: 1.5rem;
+	--max-width: 77rem;
   --light-100: hsl(219, 37%, 17%);
   --light-75: hsl(215, 50%, 23%);
   --light-50: hsl(212, 8%, 38%);
   --light-25: hsl(212, 4%, 50%);
   --dark-100: hsl(0, 0%, 95%);
-  --dark-75: hsl(0, 0%, 90%);
-  --dark-50: hsl(0, 0%, 85%);
-  --dark-25: hsl(105, 55%, 96%);
-  --pri-100: hsl(154, 33%, 52%);
-  --pri-50: hsl(154, 33%, calc(52% - 20%));
-  --sec-100: hsl(199, 89%, 47%); 
-  --sec-50: hsl(199, 89%, calc(47% - 20%));
-  --radius: 2rem;
+  --dark-75:	hsl(0, 0%, 90%);
+  --dark-50:	hsl(0, 0%, 85%);
+  --dark-25:	hsl(105, 55%, 96%);
+	--pri-100: hsl(154, 33%, 52%);
+	--pri-50: hsl(154, 33%, calc(52% - 20%));
+	--sec-100: hsl(199, 89%, 47%);
+	--sec-50: hsl(199, 89%, calc(47% - 20%));
+	--radius: 2rem;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -89,8 +68,8 @@ html, body {
 }
 
 body {
-  font-size: var(--font-base);
-  display: grid;
+	font-size: var(--font-base);
+	display: grid;
   justify-content: center;
   -webkit-font-smoothing: antialiased;
 }
@@ -299,7 +278,7 @@ footer a {
   gap: 2em;
   background-color: var(--light-100);
   padding: 1rem;
-  font-stretch: condensed;
+  font-weight: 400;
 }
 
 .cardcontainer {
@@ -394,7 +373,6 @@ footer a {
 .logo {
   color: var(--pri-100);
   font-weight: bold;
-  font-stretch: condensed;
   font-size: calc(var(--font-base) * 1.5);
 }
 
@@ -538,7 +516,6 @@ footer a {
 .site-title {
   line-height: 90%;
   font-family: var(--font-text);
-  font-stretch: condensed;
   background: linear-gradient(45deg, var(--sec-100), var(--dark-25), var(--sec-100)) 0 0 / 400% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -561,9 +538,6 @@ footer a {
 }
 
 .title-signature {
-  font-family: var(--font-text);
-  font-style: italic;
-  font-stretch: condensed;
   font-size: 2rem;
   color: var(--dark-50);
   padding: 0 0 1rem;
