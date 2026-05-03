@@ -712,7 +712,7 @@ footer a {
     font-size: 1.125rem;
     padding: 1rem;
     position: fixed;
-    bottom: 0;
+    bottom: 55px;
     left: 0;
     right: 0;
     width: 100%;
