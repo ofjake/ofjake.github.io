@@ -535,6 +535,7 @@ footer a {
   font-size: 7.5rem;
   color: var(--light-25);
   padding: 0;
+  letter-spacing: -0.05em;
 }
 
 .title-signature {
