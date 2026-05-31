@@ -392,7 +392,7 @@ footer a {
 }
 
 .headerpadding {
-  padding: 6rem 2rem 0rem;
+  padding: 9rem 2rem 0rem;
 }
 
 .padding {
@@ -723,6 +723,9 @@ footer a {
   .logo {
     text-align: left;
     padding-bottom: .05rem;
+  }
+  .headerpadding {
+  	padding: 6rem 2rem 0rem;
   }
   .directionswitch {
     order: 0;
