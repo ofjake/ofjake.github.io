@@ -12,24 +12,24 @@
 
 :root {
   --font-text: 'OswaldVariable', sans-serif;
-	--font-text2: sans-serif;
-	--font-base: 1rem;
-	--line-height: 1;
-	--padding: 1.5rem;
-	--max-width: 77rem;
+  --font-text2: sans-serif;
+  --font-base: 1rem;
+  --line-height: 1;
+  --padding: 1.5rem;
+  --max-width: 77rem;
   --light-100: hsl(219, 37%, 17%);
   --light-75: hsl(215, 50%, 23%);
   --light-50: hsl(212, 8%, 38%);
   --light-25: hsl(212, 4%, 50%);
   --dark-100: hsl(0, 0%, 95%);
-  --dark-75:	hsl(0, 0%, 90%);
-  --dark-50:	hsl(0, 0%, 85%);
-  --dark-25:	hsl(105, 55%, 96%);
-	--pri-100: hsl(154, 33%, 52%);
-	--pri-50: hsl(154, 33%, calc(52% - 20%));
-	--sec-100: hsl(199, 89%, 47%);
-	--sec-50: hsl(199, 89%, calc(47% - 20%));
-	--radius: 2rem;
+  --dark-75: hsl(0, 0%, 90%);
+  --dark-50: hsl(0, 0%, 85%);
+  --dark-25: hsl(105, 55%, 96%);
+  --pri-100: hsl(154, 33%, 52%);
+  --pri-50: hsl(154, 33%, calc(52% - 20%));
+  --sec-100: hsl(199, 89%, 47%);
+  --sec-50: hsl(199, 89%, calc(47% - 20%));
+  --radius: 2rem;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -68,8 +68,8 @@ html, body {
 }
 
 body {
-	font-size: var(--font-base);
-	display: grid;
+  font-size: var(--font-base);
+  display: grid;
   justify-content: center;
   -webkit-font-smoothing: antialiased;
 }
@@ -154,6 +154,7 @@ h2 {
 
 p {
   font-size: calc(var(--font-base) * 1.25);
+  /* font-family: sans-serif; */
   color: var(--dark-75);
   line-height: 130%;
   margin-bottom: .75rem;
