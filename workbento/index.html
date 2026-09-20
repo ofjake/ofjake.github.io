@@ -5,143 +5,98 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JakeRMiller > Work</title>
 <style>
-  :root {
-    --gap: 14px;
-    --bg: #111214;
-    --radius: 16px;
-  }
-
+  :root { --gap: 14px; --bg: #111214; --radius: 16px; }
   * { box-sizing: border-box; }
-
-  body {
-    margin: 0;
-    padding: 40px 20px;
-    background: var(--bg);
-    font-family: system-ui, sans-serif;
-  }
-
-  h1 {
-    color: #eee;
-    text-align: center;
-    font-weight: 600;
-    margin-bottom: 30px;
-    letter-spacing: -0.02em;
-  }
-
-  .grid {
-    margin: 0 auto;
-    column-count: 4;
-    column-gap: var(--gap);
-  }
-
-  @media (max-width: 900px) {
-    .grid { column-count: 3; }
-  }
-  @media (max-width: 600px) {
-    .grid { column-count: 2; }
-  }
-
-  .item {
-    break-inside: avoid;
-    margin-bottom: var(--gap);
-    border-radius: var(--radius);
-    overflow: hidden;
-    background: #1b1c1f;
-
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .item.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .item img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  /* .item.tall img { aspect-ratio: 3/4; object-fit: cover; }
-  .item.wide img { aspect-ratio: 16/9; object-fit: cover; }
-  .item.square img { aspect-ratio: 1/1; object-fit: cover; } */
+  body { margin: 0; padding: 40px 20px; background: var(--bg); font-family: system-ui, sans-serif; }
+  h1 { color: #eee; text-align: center; font-weight: 600; margin-bottom: 30px; letter-spacing: -0.02em; }
+  .grid { margin: 0 auto; column-count: 4; column-gap: var(--gap); }
+  @media (max-width: 900px) { .grid { column-count: 3; } }
+  @media (max-width: 600px) { .grid { column-count: 2; } }
+  .item { break-inside: avoid; margin-bottom: var(--gap); border-radius: var(--radius); overflow: hidden; background: #1b1c1f; cursor: zoom-in; opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .item.visible { opacity: 1; transform: translateY(0); }
+  .item img { display: block; width: 100%; height: auto; }
+  .image-viewer { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(0, 0, 0, .92); opacity: 0; cursor: zoom-out; transition: opacity .35s ease; }
+  .image-viewer.open { opacity: 1; }
+  /* Do not upscale: show the image at its natural size, capped by the viewport. */
+  .image-viewer img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; cursor: zoom-out; }
+  body.viewer-open { overflow: hidden; }
+  @media (prefers-reduced-motion: reduce) { .image-viewer { transition-duration: .01ms; } }
 </style>
 </head>
 <body>
-
 <div class="grid" id="grid"></div>
-
 <script>
   const images = [
-    { src: '2-0913-94-under10KTTB_336x280v2.jpg', cls: 'wide' },
-    { src: '2-0913-94-under10KTTB_728x90v2.jpg', cls: 'square' },
-    { src: '017-0213-MST_rav4_slider.jpg', cls: 'tall' },
-    { src: '017-0213-MST_tacoma_slider.jpg', cls: 'wide' },
-    { src: '57-2-071213-1126_300x250.jpg', cls: 'square' },
-    { src: '57-2-071213-1126_LP.jpg', cls: 'tall' },
-    { src: '57-2-071213-1126_SLDR.jpg', cls: 'wide' },
-    { src: '74-2-080513-1251-display_300x250.jpg', cls: 'square' },
-    { src: '1740-0813-newdisplay_300x250.jpg', cls: 'tall' },
-    { src: '1740-0813-newdisplay_728x90.jpg', cls: 'wide' },
-    { src: '2451_Slider.jpg', cls: 'tall' },
-    { src: '5722_0slider.jpg', cls: 'wide' },
-    { src: '6167-Display-300x250.jpg', cls: 'tall' },
-    { src: '6387_soulDisplay_300x250.jpg', cls: 'square' },
-    { src: '6387_soulDisplay_728x90.jpg', cls: 'tall' },
-    { src: '00580389_huge_300x250.jpg', cls: 'wide' },
-    { src: '00580389_huge_728x90.jpg', cls: 'tall' },
-    { src: '00603122_springevent_v2.jpg', cls: 'square' },
-    { src: 'IRAlexus_NEWdisplay_300x250.jpg', cls: 'tall' },
-    { src: 'IRAlexus_NEWdisplay_728x90.jpg', cls: 'wide' },
-    { src: 'Lambo_Slider.jpg', cls: 'tall' },
-    { src: 'lp_2.jpg', cls: 'tall' },
-    { src: 'lp_3.jpg', cls: 'square' },
-    { src: 'lp_4.jpg', cls: 'wide' },
-    { src: 'lp_5.jpg', cls: 'square' },
-    { src: 'lp_6.jpg', cls: 'wide' },
-    { src: 'lp_7.jpg', cls: 'wide' },
-    { src: 'lp_8.jpg', cls: 'tall' },
-    { src: 'lp_9.jpg', cls: 'square' },
-    { src: 'lp_10.jpg', cls: 'wide' },
-    { src: 'lp_11.JPG', cls: 'square' },
-    { src: 'shot_1.jpg', cls: 'wide' },
-    { src: 'shot_2.jpg', cls: 'wide' },
-    { src: 'shot_3.jpg', cls: 'tall' },
-    { src: 'shot_4.jpg', cls: 'square' },
-    { src: 'shot_5.jpg', cls: 'wide' },
-    { src: 'shot_6.jpg', cls: 'square' },
-    { src: 'shot_7.jpg', cls: 'wide' },
-    { src: 'shot_8.jpg', cls: 'wide' },
-    { src: 'tundra_slider.jpg', cls: 'tall' },
-    { src: 'xD_336x280.jpg', cls: 'wide' },
-    { src: 'xD_728x90.jpg', cls: 'square' },
+    { src: '2-0913-94-under10KTTB_336x280v2.jpg', cls: 'wide' }, { src: '2-0913-94-under10KTTB_728x90v2.jpg', cls: 'square' },
+    { src: '017-0213-MST_rav4_slider.jpg', cls: 'tall' }, { src: '017-0213-MST_tacoma_slider.jpg', cls: 'wide' },
+    { src: '57-2-071213-1126_300x250.jpg', cls: 'square' }, { src: '57-2-071213-1126_LP.jpg', cls: 'tall' },
+    { src: '57-2-071213-1126_SLDR.jpg', cls: 'wide' }, { src: '74-2-080513-1251-display_300x250.jpg', cls: 'square' },
+    { src: '1740-0813-newdisplay_300x250.jpg', cls: 'tall' }, { src: '1740-0813-newdisplay_728x90.jpg', cls: 'wide' },
+    { src: '2451_Slider.jpg', cls: 'tall' }, { src: '5722_0slider.jpg', cls: 'wide' }, { src: '6167-Display-300x250.jpg', cls: 'tall' },
+    { src: '6387_soulDisplay_300x250.jpg', cls: 'square' }, { src: '6387_soulDisplay_728x90.jpg', cls: 'tall' },
+    { src: '00580389_huge_300x250.jpg', cls: 'wide' }, { src: '00580389_huge_728x90.jpg', cls: 'tall' },
+    { src: '00603122_springevent_v2.jpg', cls: 'square' }, { src: 'IRAlexus_NEWdisplay_300x250.jpg', cls: 'tall' },
+    { src: 'IRAlexus_NEWdisplay_728x90.jpg', cls: 'wide' }, { src: 'Lambo_Slider.jpg', cls: 'tall' }, { src: 'lp_2.jpg', cls: 'tall' },
+    { src: 'lp_3.jpg', cls: 'square' }, { src: 'lp_4.jpg', cls: 'wide' }, { src: 'lp_5.jpg', cls: 'square' }, { src: 'lp_6.jpg', cls: 'wide' },
+    { src: 'lp_7.jpg', cls: 'wide' }, { src: 'lp_8.jpg', cls: 'tall' }, { src: 'lp_9.jpg', cls: 'square' }, { src: 'lp_10.jpg', cls: 'wide' },
+    { src: 'lp_11.JPG', cls: 'square' }, { src: 'shot_1.jpg', cls: 'wide' }, { src: 'shot_2.jpg', cls: 'wide' }, { src: 'shot_3.jpg', cls: 'tall' },
+    { src: 'shot_4.jpg', cls: 'square' }, { src: 'shot_5.jpg', cls: 'wide' }, { src: 'shot_6.jpg', cls: 'square' }, { src: 'shot_7.jpg', cls: 'wide' },
+    { src: 'shot_8.jpg', cls: 'wide' }, { src: 'tundra_slider.jpg', cls: 'tall' }, { src: 'xD_336x280.jpg', cls: 'wide' }, { src: 'xD_728x90.jpg', cls: 'square' }
   ];
-
   const grid = document.getElementById('grid');
+  let viewer = null;
+  let lastFocusedItem = null;
+
+  function closeViewer() {
+    if (!viewer) return;
+    const closingViewer = viewer;
+    viewer = null;
+    closingViewer.classList.remove('open');
+    document.body.classList.remove('viewer-open');
+    closingViewer.addEventListener('transitionend', () => {
+      closingViewer.remove();
+      lastFocusedItem?.focus();
+    }, { once: true });
+  }
+
+  function openViewer(img, item) {
+    if (viewer) return;
+    lastFocusedItem = item;
+    viewer = document.createElement('div');
+    viewer.className = 'image-viewer';
+    viewer.setAttribute('role', 'dialog');
+    viewer.setAttribute('aria-modal', 'true');
+    viewer.setAttribute('aria-label', 'Expanded image. Click to close.');
+    const expandedImage = document.createElement('img');
+    expandedImage.src = img.currentSrc || img.src;
+    expandedImage.alt = img.alt;
+    viewer.appendChild(expandedImage);
+    document.body.appendChild(viewer);
+    document.body.classList.add('viewer-open');
+    viewer.addEventListener('click', closeViewer);
+    requestAnimationFrame(() => viewer?.classList.add('open'));
+  }
 
   images.forEach(({ src, cls }) => {
-    const div = document.createElement('div');
-    div.className = `item ${cls}`;
+    const item = document.createElement('div');
+    item.className = `item ${cls}`;
+    item.tabIndex = 0;
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-label', 'Expand image');
     const img = document.createElement('img');
-    img.src = src;
-    img.alt = '';
-    img.loading = 'lazy';
-    div.appendChild(img);
-    grid.appendChild(div);
+    img.src = src; img.alt = ''; img.loading = 'lazy';
+    item.appendChild(img); grid.appendChild(item);
+    item.addEventListener('click', () => openViewer(img, item));
+    item.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openViewer(img, item); }
+    });
   });
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.item').forEach(el => observer.observe(el));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') closeViewer(); });
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+  }), { threshold: 0.1 });
+  document.querySelectorAll('.item').forEach(item => observer.observe(item));
 </script>
 </body>
 </html>
