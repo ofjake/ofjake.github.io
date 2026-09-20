@@ -47,7 +47,7 @@
     border-radius: var(--radius);
     overflow: hidden;
     background: #1b1c1f;
-
+    cursor: zoom-in;
     opacity: 0;
     transform: translateY(16px);
     transition: opacity 0.6s ease, transform 0.6s ease;
@@ -64,9 +64,38 @@
     height: auto;
   }
 
-  /* .item.tall img { aspect-ratio: 3/4; object-fit: cover; }
-  .item.wide img { aspect-ratio: 16/9; object-fit: cover; }
-  .item.square img { aspect-ratio: 1/1; object-fit: cover; } */
+  .image-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.92);
+    opacity: 0;
+    cursor: zoom-out;
+    transition: opacity 0.35s ease;
+  }
+
+  .image-viewer.open { opacity: 1; }
+
+  /* Never upscale: use the image's natural size, capped by the viewport. */
+  .image-viewer img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    cursor: zoom-out;
+  }
+
+  body.viewer-open { overflow: hidden; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .image-viewer { transition-duration: 0.01ms; }
+  }
 </style>
 </head>
 <body>
@@ -120,19 +149,70 @@
   ];
 
   const grid = document.getElementById('grid');
+  let viewer = null;
+  let lastFocusedItem = null;
+
+  function closeViewer() {
+    if (!viewer) return;
+    const closingViewer = viewer;
+    viewer = null;
+    closingViewer.classList.remove('open');
+    document.body.classList.remove('viewer-open');
+    closingViewer.addEventListener('transitionend', () => {
+      closingViewer.remove();
+      lastFocusedItem?.focus();
+    }, { once: true });
+  }
+
+  function openViewer(img, item) {
+    if (viewer) return;
+    lastFocusedItem = item;
+    viewer = document.createElement('div');
+    viewer.className = 'image-viewer';
+    viewer.setAttribute('role', 'dialog');
+    viewer.setAttribute('aria-modal', 'true');
+    viewer.setAttribute('aria-label', 'Expanded image. Click or touch to close.');
+
+    const expandedImage = document.createElement('img');
+    expandedImage.src = img.currentSrc || img.src;
+    expandedImage.alt = img.alt;
+    viewer.appendChild(expandedImage);
+    document.body.appendChild(viewer);
+    document.body.classList.add('viewer-open');
+
+    // Both interactions are supported on the overlay and the expanded image.
+    viewer.addEventListener('click', closeViewer);
+    viewer.addEventListener('touchend', closeViewer, { passive: true });
+    requestAnimationFrame(() => viewer?.classList.add('open'));
+  }
 
   images.forEach(({ src, cls }) => {
     const div = document.createElement('div');
     div.className = `item ${cls}`;
+    div.tabIndex = 0;
+    div.setAttribute('role', 'button');
+    div.setAttribute('aria-label', 'Expand image');
     const img = document.createElement('img');
     img.src = src;
     img.alt = '';
     img.loading = 'lazy';
     div.appendChild(img);
     grid.appendChild(div);
+
+    div.addEventListener('click', () => openViewer(img, div));
+    div.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openViewer(img, div);
+      }
+    });
   });
 
-  const observer = new IntersectionObserver((entries) => {
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeViewer();
+  });
+
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
