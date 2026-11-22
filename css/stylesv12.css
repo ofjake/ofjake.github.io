@@ -241,7 +241,8 @@ footer p {
 }
 
 footer a {
-  font-size: .75rem; 
+  font-size: .875rem; 
+  font-family: var(--font-text2);
 }
 
 .progress {
