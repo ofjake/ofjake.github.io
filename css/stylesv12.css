@@ -230,8 +230,9 @@ footer {
 }
 
 footer p {
-  font-size: .75rem; 
+  font-size: .875rem;
   margin-bottom: .5rem;
+  font-family: var(--font-text2);
 }
 
 footer a {
@@ -765,8 +766,3 @@ footer a {
     pointer-events: none !important;
   }
 }
-
-
-
-
-
