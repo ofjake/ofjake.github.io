@@ -158,6 +158,11 @@ p {
   color: var(--dark-75);
   line-height: 130%;
   margin-bottom: .75rem;
+  font-family: var(--font-text2);
+}
+
+p a {
+  font-family: var(--font-text);
 }
 
 img {
