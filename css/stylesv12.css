@@ -719,7 +719,7 @@ footer a {
   }
   .nav-items {
     font-size: 1.125rem;
-    padding: .5rem 1rem;
+    padding: .375rem 1rem .75rem;
     position: fixed;
     bottom: 55px;
     background-image: linear-gradient(#172235, #1b273b);
